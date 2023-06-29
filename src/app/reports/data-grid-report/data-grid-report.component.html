@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="header-section flex flex-wrap">
+        <div class="flex flex-row flex-wrap">
+            <div class="flex align-items-center text-center w-4rem h-4rem font-bold border-round m-2">
+                <h3 class="p-4">jsPDF Table Tutorial</h3>
+            </div>
+            <div class="flex align-items-center align-content-center w-4rem h-4rem font-bold border-round m-2">
+                <button pButton pRippler label="Download Report" class="p-button-sm p-button-raised"
+                    (click)="downloadPDF()"></button>
+            </div>
+        </div>
+    </div>
+    <div class="body-section">
+        <div class="table-section p-2 pb-4">
+            <p-table [value]="products" styleClass="p-datatable-gridlines p-datatable-sm"
+                [tableStyle]="{ 'min-width': '50rem', 'height': '50vh' }" [paginator]="true" [rows]="10"
+                [showCurrentPageReport]="true"
+                currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+                [rowsPerPageOptions]="[10, 25, 50]">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>ID</th>
+                        <th>Product</th>
+                        <th>Description</th>
+                        <th>UOM</th>
+                        <th>Unit Price</th>
+                        <th>Qty</th>
+                        <th>Total Price</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-product>
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.product_name}}</td>
+                        <td>{{product.product_description}}</td>
+                        <td>{{product.units}}</td>
+                        <td>{{product.unit_price}}</td>
+                        <td>{{product.qty_ordered}}</td>
+                        <td>{{product.total_amount}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+    <div class="footer-section">
+
+    </div>
+</div>
