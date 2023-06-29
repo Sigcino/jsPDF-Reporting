@@ -11,7 +11,6 @@ export class DataGridReportComponent implements OnInit, OnDestroy {
   helper = HelperFunctions;
   componentActive = true;
   products: any[] = [];
-  headers: string[] = [];
 
   constructor(private service: ReportServiceService) { }
   
@@ -21,11 +20,6 @@ export class DataGridReportComponent implements OnInit, OnDestroy {
 
   refreshData() {
     if (this.componentActive) {
-      let headerResult = this.service.generateHeader();
-      if (headerResult) {
-        this.headers = this.helper.DeepCopy(headerResult);
-      }
-
       let productData = this.service.generateData(20);
       if(productData) {
         this.products = this.helper.DeepCopy(productData);
@@ -34,7 +28,7 @@ export class DataGridReportComponent implements OnInit, OnDestroy {
   }
 
   downloadPDF() {
-    this.service.generateJsPDF();
+    this.service.generateJsPDF('datagrid-report','body-section');
   }
 
   ngOnDestroy(): void {

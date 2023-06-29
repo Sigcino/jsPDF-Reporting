@@ -1,8 +1,9 @@
 <div class="container">
     <div class="header-section flex flex-wrap">
         <div class="flex flex-row flex-wrap">
-            <div class="flex align-items-center text-center w-4rem h-4rem font-bold border-round m-2">
-                <h3 class="p-4">jsPDF Table Tutorial</h3>
+            <div class="flex align-items-center text-center w-4rem h-4rem font-bold border-round m-2" id="header-section">
+                <h3 class="pt-4">jsPDF Table Tutorial</h3>
+                <p>By Sigcino Sizwe Ngcobo</p>
             </div>
             <div class="flex align-items-center align-content-center w-4rem h-4rem font-bold border-round m-2">
                 <button pButton pRippler label="Download Report" class="p-button-sm p-button-raised"
@@ -11,7 +12,7 @@
         </div>
     </div>
     <div class="body-section">
-        <div class="table-section p-2 pb-4">
+        <div class="table-section p-2 pb-4" id="body-section">
             <p-table [value]="products" styleClass="p-datatable-gridlines p-datatable-sm"
                 [tableStyle]="{ 'min-width': '50rem', 'height': '50vh' }" [paginator]="true" [rows]="10"
                 [showCurrentPageReport]="true"
@@ -43,6 +44,5 @@
         </div>
     </div>
     <div class="footer-section">
-
     </div>
 </div>
